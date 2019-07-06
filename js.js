@@ -1,0 +1,32 @@
+<script type="text/javascript"><!--
+myQA = new Array(	// 問題テーブル
+"飛行機",	"plane",
+"船",	"ship",
+"汽車",	"train",
+"車",	"car",
+"自転車",	"bicycle",
+"川",	"river",
+"山",	"mountain",
+"道路",	"road",
+"家",	"house",
+"スクリプト",	"script"
+);
+ 	
+myNowCnt = 0;	// 問題を出すテーブルカウンタ
+myLastCnt = myQA.length / 2;	// 問題の数
+
+function myQues(){
+myA = prompt("¥n問題 : "+myQA[myNowCnt*2],"");
+if ( myA != null ){	// キャンセルボタンでない?
+if ( myA == myQA[myNowCnt*2+1] ){	// スペル正解?
+myNowCnt=(myNowCnt==myLastCnt-1)?0:myNowCnt+1;	// 次の問題へ
+}else{	// スペル間違った
+alert("はずれ！　答えは "+myQA[myNowCnt*2+1]+" です！");
+}
+myQues();
+}
+}
+// --></script>
+<form name="myForm">
+<input type="button" value="英単語の勉強を始める" onclick="myQues()">
+</form>
